@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <div id="app" class="flex flex-col min-h-screen">
+        <!-- Sticky Navigation Header -->
+        <header class="bg-white shadow-lg sticky top-0 z-50">
+            <nav class="container mx-auto px-4 py-4 md:py-6">
+                <ul class="flex justify-center space-x-4 md:space-x-8">
+                    <li><a href="#home" data-page="home"
+                            class="nav-link text-lg font-semibold text-gray-600 hover:text-indigo-600 transition-colors duration-300 rounded-md py-2 px-4">Home</a>
+                    </li>
+                    <li><a href="#art" data-page="art"
+                            class="nav-link text-lg font-semibold text-gray-600 hover:text-indigo-600 transition-colors duration-300 rounded-md py-2 px-4">Art</a>
+                    </li>
+                    <li><a href="#design" data-page="design"
+                            class="nav-link text-lg font-semibold text-gray-600 hover:text-indigo-600 transition-colors duration-300 rounded-md py-2 px-4">Design</a>
+                    </li>
+                    <li><a href="#contact" data-page="contact"
+                            class="nav-link text-lg font-semibold text-gray-600 hover:text-indigo-600 transition-colors duration-300 rounded-md py-2 px-4">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content Area with Pages -->
+        <main class="flex-grow container mx-auto p-4 md:p-8">
+
+            <!-- Home Page Section -->
+            <section id="home" class="page-section active pt-20">
+                <div class="bg-white p-6 md:p-12 rounded-lg shadow-xl text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">My Creative Portfolio</h1>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Welcome to my creative space. I am a passionate
+                        artist and designer, constantly exploring new ideas and mediums. Here you can find a curated
+                        selection of my latest work. Feel free to explore and get in touch!</p>
+                </div>
+            </section>
+
+            <!-- Art Page Section -->
+            <section id="art" class="page-section pt-20">
+                <div class="bg-white p-6 md:p-12 rounded-lg shadow-xl text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Art Gallery</h2>
+                    <div class="carousel-container relative w-full overflow-hidden rounded-lg">
+                        <div id="art-carousel" class="carousel-images w-full">
+                            <!-- Replace these placeholder image URLs with your own art files -->
+                            <img src="https://placehold.co/800x600/60A5FA/ffffff?text=Art+Piece+1" alt="Art Piece 1"
+                                class="rounded-lg shadow-md">
+                            <img src="https://placehold.co/800x600/4B5563/ffffff?text=Art+Piece+2" alt="Art Piece 2"
+                                class="rounded-lg shadow-md">
+                            <img src="https://placehold.co/800x600/FCA5A5/ffffff?text=Art+Piece+3" alt="Art Piece 3"
+                                class="rounded-lg shadow-md">
+                            <img src="https://placehold.co/800x600/A78BFA/ffffff?text=Art+Piece+4" alt="Art Piece 4"
+                                class="rounded-lg shadow-md">
+                            <img src="https://placehold.co/800x600/34D399/ffffff?text=Art+Piece+5" alt="Art Piece 5"
+                                class="rounded-lg shadow-md">
+                        </div>
+                        <button id="prev-art"
+                            class="nav-button left-4 text-3xl font-bold rounded-full py-2 px-4">&lsaquo;</button>
+                        <button id="next-art"
+                            class="nav-button right-4 text-3xl font-bold rounded-full py-2 px-4">&rsaquo;</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design Page Section -->
+            <section id="design" class="page-section pt-20">
+                <div class="bg-white p-6 md:p-12 rounded-lg shadow-xl text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Design Projects</h2>
+                    <div class="carousel-container relative w-full overflow-hidden rounded-lg">
+                        <div id="design-carousel" class="carousel-images w-full">
+                            <!-- Replace these placeholder image URLs with your own design files -->
+                            <img src="https://placehold.co/800x600/81C784/ffffff?text=Design+Project+1"
+                                alt="Design Project 1" class="rounded-lg shadow-md">
+                            <img src="https://placehold.co/800x600/4FC3F7/ffffff?text=Design+Project+2"
+                                alt="Design Project 2" class="rounded-lg shadow-md">
+                            <img src="https://placehold.co/800x600/FFB74D/ffffff?text=Design+Project+3"
+                                alt="Design Project 3" class="rounded-lg shadow-md">
+                            <img src="https://placehold.co/800x600/BA68C8/ffffff?text=Design+Project+4"
+                                alt="Design Project 4" class="rounded-lg shadow-md">
+                            <img src="https://placehold.co/800x600/A1887F/ffffff?text=Design+Project+5"
+                                alt="Design Project 5" class="rounded-lg shadow-md">
+                        </div>
+                        <button id="prev-design"
+                            class="nav-button left-4 text-3xl font-bold rounded-full py-2 px-4">&lsaquo;</button>
+                        <button id="next-design"
+                            class="nav-button right-4 text-3xl font-bold rounded-full py-2 px-4">&rsaquo;</button>
+                    </div>
+                    <div>
+                        <p>Some samples of a play on tarot card. <br>
+                            I'm interested in gothic/fantasy themes and like to play around with different elements.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Page Section -->
+            <section id="contact" class="page-section pt-20">
+                <div class="bg-white p-6 md:p-12 rounded-lg shadow-xl text-center max-w-2xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Get In Touch</h2>
+                    <p class="text-lg text-gray-600 mb-6">I'd love to hear from you. Please fill out the form below to
+                        send me a message.</p>
+
+                    <form id="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain"
+                        class="space-y-6 text-left">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
+                            <input type="text" id="name" name="name"
+                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                placeholder="your-email@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5"
+                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-md hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Send
+                            Message</button>
+                    </form>
+                    <p class="text-sm text-gray-500 mt-4 italic">Note: This form uses a basic `mailto:` function and
+                        will open your default email client to send the message.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-200 text-center py-4 mt-8">
+            <p class="text-gray-600 text-sm">&copy; 2025 My Portfolio. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
