@@ -69,3 +69,7 @@
         .nav-button:active {
             opacity: 0.8;
         }
+
+        .text-gray-600 {
+            text-align: center;
+        }
