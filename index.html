@@ -1,164 +1,419 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Creative Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hide scrollbar for the carousel */
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-track {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        body.project-view header {
+            display: none;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-900 text-gray-200 font-sans min-h-screen">
 
-    <div id="app" class="flex flex-col min-h-screen">
-        <!-- Sticky Navigation Header -->
-        <header class="bg-white shadow-lg sticky top-0 z-50">
-            <nav class="container mx-auto px-4 py-4 md:py-6">
-                <ul class="flex justify-center space-x-4 md:space-x-8">
-                    <li><a href="#home" data-page="home"
-                            class="nav-link text-lg font-semibold text-gray-600 hover:text-indigo-600 transition-colors duration-300 rounded-md py-2 px-4">Home</a>
-                    </li>
-                    <li><a href="#art" data-page="art"
-                            class="nav-link text-lg font-semibold text-gray-600 hover:text-indigo-600 transition-colors duration-300 rounded-md py-2 px-4">Art</a>
-                    </li>
-                    <li><a href="#design" data-page="design"
-                            class="nav-link text-lg font-semibold text-gray-600 hover:text-indigo-600 transition-colors duration-300 rounded-md py-2 px-4">Design</a>
-                    </li>
-                    <li><a href="#contact" data-page="contact"
-                            class="nav-link text-lg font-semibold text-gray-600 hover:text-indigo-600 transition-colors duration-300 rounded-md py-2 px-4">Contact</a>
-                    </li>
-                </ul>
+    <!-- Header and Sticky Navigation -->
+    <header
+        class="sticky top-0 w-full bg-gray-800/95 backdrop-blur-sm z-50 flex justify-center items-center h-16 border-b border-gray-700">
+        <nav class="flex space-x-6">
+            <a href="#home"
+                class="text-gray-200 font-medium text-lg px-4 py-2 rounded-lg hover:bg-yellow-400/10 hover:text-yellow-400 transition-colors duration-300">Home</a>
+            <a href="#illustrations"
+                class="text-gray-200 font-medium text-lg px-4 py-2 rounded-lg hover:bg-yellow-400/10 hover:text-yellow-400 transition-colors duration-300">Illustrations</a>
+            <a href="#branding"
+                class="text-gray-200 font-medium text-lg px-4 py-2 rounded-lg hover:bg-yellow-400/10 hover:text-yellow-400 transition-colors duration-300">Branding</a>
+            <!-- <a href="#photography" class="text-gray-200 font-medium text-lg px-4 py-2 rounded-lg hover:bg-yellow-400/10 hover:text-yellow-400 transition-colors duration-300">Photography</a> -->
+            <a href="#about"
+                class="text-gray-200 font-medium text-lg px-4 py-2 rounded-lg hover:bg-yellow-400/10 hover:text-yellow-400 transition-colors duration-300">About</a>
+            <a href="#contact"
+                class="text-gray-200 font-medium text-lg px-4 py-2 rounded-lg hover:bg-yellow-400/10 hover:text-yellow-400 transition-colors duration-300">Contact</a>
+        </nav>
+    </header>
 
-            </nav>
-        </header>
+    <main class="container mx-auto p-4 md:p-8">
 
-        <!-- Main Content Area with Pages -->
-        <main class="flex-grow container mx-auto p-4 md:p-8">
-
-            <!-- Home Page Section -->
-            <section id="home" class="page-section active pt-20">
-                <div class="bg-white p-6 md:p-12 rounded-lg shadow-xl text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">My Creative Portfolio</h1>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Welcome to my creative space. I am a passionate
-                        artist and designer, constantly exploring new ideas and mediums. Here you can find a curated
-                        selection of my latest work. Feel free to explore and get in touch!</p>
-                </div>
+        <!-- Main Pages Section -->
+        <div id="main-content" class="page active">
+            <!-- Hero Section -->
+            <section id="home"
+                class="text-center py-24 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-lg mt-8">
+                <h1 class="text-5xl font-extrabold text-yellow-400 mb-4">Creative Works</h1>
+                <p class="text-xl text-gray-400">Showcasing a collection of my artistic and design projects.</p>
             </section>
 
-            <!-- Art Page Section -->
-            <section id="art" class="page-section pt-20">
-                <div class="bg-white p-6 md:p-12 rounded-lg shadow-xl text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Art Gallery</h2>
-                    <div class="carousel-container relative w-full overflow-hidden rounded-lg">
-                        <div id="art-carousel" class="carousel-images w-full">
-                            <!-- Replace these placeholder image URLs with your own art files -->
-                            <img src="https://placehold.co/800x600/60A5FA/ffffff?text=Art+Piece+1" alt="Art Piece 1"
-                                class="rounded-lg shadow-md">
-                            <img src="https://placehold.co/800x600/4B5563/ffffff?text=Art+Piece+2" alt="Art Piece 2"
-                                class="rounded-lg shadow-md">
-                            <img src="https://placehold.co/800x600/FCA5A5/ffffff?text=Art+Piece+3" alt="Art Piece 3"
-                                class="rounded-lg shadow-md">
-                            <img src="https://placehold.co/800x600/A78BFA/ffffff?text=Art+Piece+4" alt="Art Piece 4"
-                                class="rounded-lg shadow-md">
-                            <img src="https://placehold.co/800x600/34D399/ffffff?text=Art+Piece+5" alt="Art Piece 5"
-                                class="rounded-lg shadow-md">
-                        </div>
-                        <button id="prev-art"
-                            class="nav-button left-4 text-3xl font-bold rounded-full py-2 px-4">&lsaquo;</button>
-                        <button id="next-art"
-                            class="nav-button right-4 text-3xl font-bold rounded-full py-2 px-4">&rsaquo;</button>
+            <!-- Illustrations Section with Carousel -->
+            <section id="illustrations" class="py-16">
+                <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">Illustrations</h2>
+                <div class="relative">
+                    <button
+                        class="carousel-btn absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 p-2 rounded-full shadow-lg z-20 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-300"
+                        data-carousel-id="illus-carousel-track" data-direction="-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <div id="illus-carousel-track"
+                        class="carousel-track flex space-x-6 overflow-x-auto snap-x snap-mandatory">
+                        <!-- Project Links -->
+                        <a href="#" data-project-id="illus-1"
+                            class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/f0e68c/2c2c2c?text=Project+1"
+                                alt="Illustration Project 1" class="w-full h-auto object-cover">
+                        </a>
+                        <a href="#" data-project-id="illus-2"
+                            class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/f0e68c/2c2c2c?text=Project+2"
+                                alt="Illustration Project 2" class="w-full h-auto object-cover">
+                        </a>
+                        <a href="#" data-project-id="illus-3"
+                            class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/f0e68c/2c2c2c?text=Project+3"
+                                alt="Illustration Project 3" class="w-full h-auto object-cover">
+                        </a>
                     </div>
+                    <button
+                        class="carousel-btn absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 p-2 rounded-full shadow-lg z-20 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-300"
+                        data-carousel-id="illus-carousel-track" data-direction="1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
                 </div>
             </section>
 
-            <!-- Design Page Section -->
-            <section id="design" class="page-section pt-20">
-                <div class="bg-white p-6 md:p-12 rounded-lg shadow-xl text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Design Projects</h2>
-                    <div class="carousel-container relative w-full overflow-hidden rounded-lg">
-                        <div id="design-carousel" class="carousel-images w-full">
-                            <!-- Replace these placeholder image URLs with your own design files -->
-                            <img src="https://placehold.co/800x600/81C784/ffffff?text=Design+Project+1"
-                                alt="Design Project 1" class="rounded-lg shadow-md">
-                            <img src="https://placehold.co/800x600/4FC3F7/ffffff?text=Design+Project+2"
-                                alt="Design Project 2" class="rounded-lg shadow-md">
-                            <img src="https://placehold.co/800x600/FFB74D/ffffff?text=Design+Project+3"
-                                alt="Design Project 3" class="rounded-lg shadow-md">
-                            <img src="https://placehold.co/800x600/BA68C8/ffffff?text=Design+Project+4"
-                                alt="Design Project 4" class="rounded-lg shadow-md">
-                            <img src="https://placehold.co/800x600/A1887F/ffffff?text=Design+Project+5"
-                                alt="Design Project 5" class="rounded-lg shadow-md">
-                        </div>
-                        <button id="prev-design"
-                            class="nav-button left-4 text-3xl font-bold rounded-full py-2 px-4">&lsaquo;</button>
-                        <button id="next-design"
-                            class="nav-button right-4 text-3xl font-bold rounded-full py-2 px-4">&rsaquo;</button>
+            <!-- Branding Section with Carousel -->
+            <section id="branding" class="py-16">
+                <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">Branding</h2>
+                <div class="relative">
+                    <button
+                        class="carousel-btn absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 p-2 rounded-full shadow-lg z-20 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-300"
+                        data-carousel-id="brand-carousel-track" data-direction="-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <div id="brand-carousel-track"
+                        class="carousel-track flex space-x-6 overflow-x-auto snap-x snap-mandatory">
+                        <a href="#" data-project-id="brand-1"
+                            class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/2c2c2c/f0e68c?text=Project+1"
+                                alt="Branding Project 1" class="w-full h-auto object-cover">
+                        </a>
+                        <a href="#" data-project-id="brand-2"
+                            class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/2c2c2c/f0e68c?text=Project+2"
+                                alt="Branding Project 2" class="w-full h-auto object-cover">
+                        </a>
+                        <a href="#" data-project-id="brand-3"
+                            class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/2c2c2c/f0e68c?text=Project+3"
+                                alt="Branding Project 3" class="w-full h-auto object-cover">
+                        </a>
                     </div>
-                    <div>
-                        <p>Some samples of a play on tarot card. <br>
-                            I'm interested in gothic/fantasy themes and like to play around with different elements.
-                        </p>
+                    <button
+                        class="carousel-btn absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 p-2 rounded-full shadow-lg z-20 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-300"
+                        data-carousel-id="brand-carousel-track" data-direction="1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Photography Section with Carousel -->
+            <!--      <section id="photography" class="py-16">
+                <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">Photography</h2>
+                <div class="relative">
+                    <button class="carousel-btn absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 p-2 rounded-full shadow-lg z-20 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-300" data-carousel-id="photo-carousel-track" data-direction="-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <div id="photo-carousel-track" class="carousel-track flex space-x-6 overflow-x-auto snap-x snap-mandatory">
+                        <a href="#" data-project-id="photo-1" class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/f0e68c/2c2c2c?text=Project+1" alt="Photography Project 1" class="w-full h-auto object-cover">
+                        </a>
+                        <a href="#" data-project-id="photo-2" class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/f0e68c/2c2c2c?text=Project+2" alt="Photography Project 2" class="w-full h-auto object-cover">
+                        </a>
+                        <a href="#" data-project-id="photo-3" class="project-link shrink-0 w-full sm:w-1/2 md:w-1/3 snap-center block relative overflow-hidden rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/900x600/f0e68c/2c2c2c?text=Project+3" alt="Photography Project 3" class="w-full h-auto object-cover">
+                        </a>
                     </div>
+                    <button class="carousel-btn absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 p-2 rounded-full shadow-lg z-20 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-300" data-carousel-id="photo-carousel-track" data-direction="1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+            -->
+
+            <!-- About Section -->
+            <section id="about" class="py-16">
+                <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">About</h2>
+                <div class="max-w-3xl mx-auto text-center text-gray-400 text-lg space-y-4">
+                    <p>Hello! I am a multi-disciplinary artist and designer with a passion for creating impactful visual
+                        narratives. My work spans from intricate digital illustrations and thoughtful brand identities
+                        to captivating photography.</p>
+                    <p>I believe in the power of art and design to tell stories, evoke emotions, and connect with
+                        people. This portfolio is a curated selection of projects that showcase my creative journey and
+                        my dedication to craftsmanship. I'm always looking for new challenges and collaborations, so
+                        feel free to get in touch.</p>
                 </div>
             </section>
 
-            <!-- Contact Page Section -->
-            <section id="contact" class="page-section pt-20">
-                <div class="bg-white p-6 md:p-12 rounded-lg shadow-xl text-center max-w-2xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Get In Touch</h2>
-                    <p class="text-lg text-gray-600 mb-6">I'd love to hear from you. Please fill out the form below to
-                        send me a message.</p>
-
-                    <form id="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain"
-                        class="space-y-6 text-left">
-                        <div>
-                            <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
-                            <input type="text" id="name" name="name"
-                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                placeholder="Your Name" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
-                            <input type="email" id="email" name="email"
-                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                placeholder="your-email@example.com" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
-                            <textarea id="message" name="message" rows="5"
-                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-md hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Send
-                            Message</button>
-                    </form>
-                    <p class="text-sm text-gray-500 mt-4 italic">Note: This form uses a basic `mailto:` function and
-                        will open your default email client to send the message.</p>
-                </div>
+            <!-- Contact Section -->
+            <section id="contact" class="py-16">
+                <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">Contact</h2>
+                <form class="max-w-xl mx-auto flex flex-col space-y-6" action="mailto:your-email@example.com"
+                    method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Your Name" required
+                        class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    <input type="email" name="email" placeholder="Your Email" required
+                        class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    <textarea name="message" rows="6" placeholder="Your Message" required
+                        class="bg-gray-800 border border-gray-700 rounded-lg p-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                    <button type="submit"
+                        class="bg-yellow-400 text-gray-900 font-bold py-4 rounded-lg hover:bg-yellow-500 transition-colors duration-300">Send
+                        Message</button>
+                </form>
             </section>
+        </div>
 
-        </main>
+        <!-- Individual Project Page (Dynamic Content) -->
+        <div id="project-page" class="page">
+            <button id="back-btn"
+                class="mb-8 flex items-center space-x-2 text-yellow-400 hover:text-yellow-500 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span>Back to all projects</span>
+            </button>
+            <h2 id="project-title" class="text-4xl font-bold text-center text-yellow-400 mb-8"></h2>
+            <div id="project-content" class="max-w-4xl mx-auto space-y-8">
+                <!-- Project images and details will be injected here -->
+            </div>
+        </div>
+    </main>
 
-        <!-- Footer -->
-        <footer class="bg-gray-200 text-center py-4 mt-8">
-            <!-- <ul class="external-link"> -->
-            <!--external contact links-->
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-gray-700 text-gray-400">
+        <p>&copy; 2024 My Portfolio. All Rights Reserved.</p>
+        <div class="flex justify-center space-x-6 mt-4">
+            <a href="https://www.linkedin.com" target="_blank"
+                class="hover:scale-110 transition-transform duration-300"><img
+                    src="https://placehold.co/40x40/f0e68c/2c2c2c?text=LI" alt="LinkedIn"
+                    class="rounded-lg shadow-lg"></a>
+            <a href="https://www.instagram.com" target="_blank"
+                class="hover:scale-110 transition-transform duration-300"><img
+                    src="https://placehold.co/40x40/f0e68c/2c2c2c?text=IG" alt="Instagram"
+                    class="rounded-lg shadow-lg"></a>
+            <a href="https://www.etsy.com" target="_blank"
+                class="hover:scale-110 transition-transform duration-300"><img
+                    src="https://placehold.co/40x40/f0e68c/2c2c2c?text=ET" alt="Etsy" class="rounded-lg shadow-lg"></a>
+        </div>
+    </footer>
 
-            <p class="text-gray-600 text-sm">
-                <a href="https://www.linkedin.com/in/irjaimes/">linkedIn </a>
-                <a href="https://www.instagram.com/rudepandadesigns/">Insta </a>
-                <a href="https://www.etsy.com/shop/RudePandaDesigns">Etsy </a>
-                &copy;2025 My Portfolio. All rights reserved.
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollToTopBtn"
+        class="fixed bottom-8 right-8 bg-yellow-400 text-gray-900 rounded-full p-3 shadow-lg transition-all duration-300 opacity-0 transform translate-y-4 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+        aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
 
-            </p>
-
-
-        </footer>
+    <!-- Lightbox Overlay for full-size images -->
+    <div id="lightbox-overlay"
+        class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-[100] hidden">
+        <button id="lightbox-close"
+            class="absolute top-4 right-4 text-gray-200 text-3xl font-bold p-2 rounded-full hover:bg-gray-800 transition-colors duration-300">&times;</button>
+        <img id="lightbox-image" src="" alt="Full-size project image"
+            class="max-w-[90%] max-h-[90%] rounded-lg shadow-xl">
     </div>
 
+    <script>
+        const projectData = {
+            "illus-1": {
+                title: "Illustration Project 1: The Luminous Garden",
+                description: "This digital illustration explores the interplay of light and shadow in a natural setting. The use of vibrant colors and intricate line work brings the fantastical flora to life, creating a sense of wonder and motion. The project was created with a focus on capturing a specific mood.",
+                images: ["https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+1", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+2", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+3", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+4"]
+            },
+            "illus-2": {
+                title: "Illustration Project 2: Urban Echoes",
+                description: "A series of illustrations inspired by the sounds and shapes of city life. This project combines geometric abstraction with organic forms to represent the chaotic yet harmonious rhythm of a bustling metropolis. Each piece tells a small story of urban existence.",
+                images: ["https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+1", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+2", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+3", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+4"]
+            },
+            "illus-3": {
+                title: "Illustration Project 3: Mythos & Magic",
+                description: "This collection delves into ancient mythology and folklore, re-imagining classic tales with a modern artistic twist. Each illustration is rich with symbolism and narrative, inviting the viewer to explore timeless stories through a new lens. The color palette is both earthy and ethereal.",
+                images: ["https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+1", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+2", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+3", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+4"]
+            },
+            "brand-1": {
+                title: "Branding Project 1: The Modern Nomad",
+                description: "This was a complete brand identity suite for a travel and lifestyle blog. The project included logo design, a cohesive color palette, and typography guidelines to create a visual identity that is both sophisticated and adventurous. The goal was to appeal to a younger, more tech-savvy audience.",
+                images: ["https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+1", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+2", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+3", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+4"]
+            },
+            "brand-2": {
+                title: "Branding Project 2: Coastal Eats",
+                description: "A complete re-brand for a local seafood restaurant. The new identity is fresh and inviting, with a color scheme inspired by the ocean and sand. The logo is a clean, minimalist design that reflects the restaurant's focus on high-quality, fresh ingredients. Menus and signage were also designed.",
+                images: ["https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+1", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+2", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+3", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+4"]
+            },
+            "brand-3": {
+                title: "Branding Project 3: The Artisan Market",
+                description: "This branding project was for a startup online marketplace selling handmade goods. The identity is a blend of traditional craftsmanship and modern technology, using a rustic yet elegant color scheme and custom typography. The logo combines a classic symbol with a clean, contemporary font.",
+                images: ["https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+1", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+2", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+3", "https://placehold.co/900x600/2c2c2c/f0e68c?text=Image+4"]
+            },
+            "photo-1": {
+                title: "Photography Project 1: Capturing the Coast",
+                description: "A series of landscape photographs capturing the rugged beauty of the pacific coastline. The collection focuses on natural light, texture, and composition, highlighting the raw, untamed energy of the sea and the land.",
+                images: ["https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+1", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+2", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+3", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+4"]
+            },
+            "photo-2": {
+                title: "Photography Project 2: Street Portraits",
+                description: "This project is an exploration of urban life through candid street portraits. Each photograph tells a story, capturing the unique character and spirit of the city's inhabitants. The focus is on authenticity and human connection.",
+                images: ["https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+1", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+2", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+3", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+4"]
+            },
+            "photo-3": {
+                title: "Photography Project 3: Abstract Forms in Nature",
+                description: "This collection finds beauty in the abstract, focusing on patterns, textures, and light in the natural world. From macro shots of intricate leaves to the subtle ripples in water, these images reveal the hidden art that exists all around us.",
+                images: ["https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+1", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+2", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+3", "https://placehold.co/900x600/f0e68c/2c2c2c?text=Image+4"]
+            }
+        };
+
+        const mainContent = document.getElementById('main-content');
+        const projectPage = document.getElementById('project-page');
+        const projectTitle = document.getElementById('project-title');
+        const projectContent = document.getElementById('project-content');
+        const backBtn = document.getElementById('back-btn');
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        const lightboxOverlay = document.getElementById('lightbox-overlay');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+
+        document.querySelectorAll('.project-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectId = e.currentTarget.dataset.projectId;
+                const project = projectData[projectId];
+
+                if (project) {
+                    // Populate the project page with content
+                    projectTitle.textContent = project.title;
+                    projectContent.innerHTML = `
+                        <p class="text-xl text-gray-400 mb-8">${project.description}</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${project.images.map(imgSrc => `<img src="${imgSrc}" alt="${project.title} image" class="rounded-xl shadow-lg border border-gray-700 cursor-pointer hover:opacity-80 transition-opacity duration-300">`).join('')}
+                        </div>
+                    `;
+
+                    // Show the project page and hide the main content
+                    mainContent.classList.remove('active');
+                    projectPage.classList.add('active');
+                    document.body.classList.add('project-view');
+                    window.scrollTo(0, 0); // Scroll to the top of the page
+
+                    // Add event listeners to the new images for the lightbox
+                    const projectImages = document.querySelectorAll('#project-content img');
+                    projectImages.forEach(image => {
+                        image.addEventListener('click', () => {
+                            lightboxImage.src = image.src;
+                            lightboxOverlay.classList.remove('hidden');
+                            document.body.style.overflow = 'hidden'; // Prevent body scrolling
+                        });
+                    });
+                }
+            });
+        });
+
+        backBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Hide the project page and show the main content
+            projectPage.classList.remove('active');
+            mainContent.classList.add('active');
+            document.body.classList.remove('project-view');
+            window.scrollTo(0, 0); // Scroll back to the top
+        });
+
+        // Carousel functionality
+        document.querySelectorAll('.carousel-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const carouselId = button.dataset.carouselId;
+                const direction = parseInt(button.dataset.direction);
+                const carousel = document.getElementById(carouselId);
+
+                // Get the width of one item to determine the scroll amount
+                const itemWidth = carousel.querySelector('.project-link').offsetWidth + 24; // Item width + gap
+
+                carousel.scrollBy({
+                    left: itemWidth * direction,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll to top button functionality
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+                scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+            } else {
+                scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Lightbox close functionality
+        lightboxClose.addEventListener('click', () => {
+            lightboxOverlay.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore body scrolling
+        });
+
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox-overlay') {
+                lightboxOverlay.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore body scrolling
+            }
+        });
+    </script>
 </body>
 
 </html>
